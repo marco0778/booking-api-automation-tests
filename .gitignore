@@ -1,0 +1,11 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+test.js
+storage/auth.json
+playwright-result.json
+playwright-results.csv
