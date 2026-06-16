@@ -12,4 +12,5 @@ exports.testCases = [
   { description: 'Booking Title is empty', title: ``, date: `${timestampPlus7}`, expectStatus: 400, expectMessage: `Title is required` },
   { description: 'Booking Date is empty', title: `Testing${getUnique()}`, date: ``, expectStatus: 400, expectMessage: `Date is required` },
   { description: 'Choose previous Booking Date than today', title: `Testing${getUnique()}`, date: `2025-06-08T17:45:22+07:00`, expectStatus: 400, expectMessage: `You should not choose previous date` },
+  { description: 'Invalid date format', title: `Testing${getUnique()}`, date: `2025-13-08T17:45:22+07:00`, expectStatus: 400, expectMessage: `Invalid Date format` },
 ];

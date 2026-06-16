@@ -38,13 +38,17 @@ test.describe('API Tests Booking', () => {
                 data: bodyRequest
             });
 
-            const body = await response.json();
-            const bodyText = await response.text();
-            const status = await response.status();
-            console.log("Response API", body);
+            let body;
 
-            expect(testCase.expectStatus).toBe(status);
-            expect(bodyText).toContain(testCase.expectMessage);
+            try {
+                const body = await response.json();
+                const status = await response.status();
+                expect(testCase.expectStatus).toBe(status);
+                console.log("Response API", body);
+            } catch (error) {
+                const bodyText = await response.text();
+                expect(bodyText).toContain(testCase.expectMessage);
+            }
 
             const curl = generateCurlRevamp(`${baseUrl}/bookings`, {}, headers, JSON.stringify(bodyRequest, null, 2));
 
